@@ -2,7 +2,7 @@
   <div>
     <label>{{label}}</label>:
     <br />
-    <input :type={type} v-model="inputData" @keyup="updateData" />
+    <input :type="type" v-model="inputData" @keyup="updateData" />
   </div>
 </template>
 
