@@ -1,9 +1,14 @@
 <template>
   <div class="nav">
     <nav>
-      <NavLink buttonName="Log Out" route="LogOut" />
-      <NavLink buttonName="Sign In" route="signin" />
-      <NavLink buttonName="Sign Up" route="signup" />
+      <router-link :to="{name: 'home'}">
+        <div>The Experiment</div>
+      </router-link>
+      <div class="nav-links">
+        <NavLink buttonName="Log Out" route="LogOut" />
+        <NavLink buttonName="Sign In" route="signin" />
+        <NavLink buttonName="Sign Up" route="signup" />
+      </div>
     </nav>
   </div>
 </template>
@@ -20,9 +25,28 @@ export default {
 
 <style>
 nav {
-  background-color:#d1cae6;
+  background-color: #b1a8cb;
   padding: 10px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
   flex-direction: row-reverse;
+}
+button {
+  margin: 5px;
+  background-color: #8980a8;
+  color: white;
+  font-size: 14px;
+  border-radius: 3px;
+}
+a {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
 }
 </style>
