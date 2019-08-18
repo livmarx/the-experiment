@@ -20,27 +20,33 @@
         :inputData="password"
         @updateData="updateData($event, 'password')"
       />
+      <CreateButton title="Sign Up!" routeName="home" :data="user" />
     </form>
   </div>
 </template>
 
 <script>
+import CreateButton from '@/components/CreateButton';
 import TextInput from '@/components/TextInput';
+
 export default {
   name: 'SignUp',
   components: {
+    CreateButton,
     TextInput,
   },
   data() {
     return {
-      name: null,
-      email: null,
-      password: null,
+      user: {
+        name: null,
+        email: null,
+        password: null,
+      },
     };
   },
   methods: {
     updateData(event, attribute) {
-      this[attribute] = event
+      this[attribute] = event;
     },
   },
 };
