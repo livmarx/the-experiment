@@ -1,6 +1,5 @@
 <template>
   <div>
-    Sign Up
     <form @submit.prevent>
       <TextInput
         label="Name"
@@ -20,31 +19,47 @@
         :inputData="password"
         @updateData="updateData($event, 'password')"
       />
-      <CreateButton title="Sign Up!" routeName="home" :data="user" />
+      <button @click="signUp">Sign Up!</button>
     </form>
   </div>
 </template>
 
 <script>
-import CreateButton from '@/components/CreateButton';
+// functions:
+import { createResearcher } from '@/apis/authApi.js';
+// components:
 import TextInput from '@/components/TextInput';
 
 export default {
   name: 'SignUp',
   components: {
-    CreateButton,
     TextInput,
   },
   data() {
     return {
-      user: {
-        name: null,
-        email: null,
-        password: null,
-      },
+      name: null,
+      email: null,
+      password: null,
     };
   },
   methods: {
+    signUp() {
+      if (this.name && this.email && this.password) {
+        let reseacher = {};
+        reseacher.email = this.email;
+        reseacher.name = this.name;
+        createResearcher(this.email, this.password, reseacher)
+          .then(() => {
+            this.$router.push({ name: 'Home' });
+          })
+          .catch(err => {
+            console.error(err);
+            this.feedback = err.message;
+          });
+      } else {
+        this.feedback = 'Please fill all fields.';
+      }
+    },
     updateData(event, attribute) {
       this[attribute] = event;
     },
