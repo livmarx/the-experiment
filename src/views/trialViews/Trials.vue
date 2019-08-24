@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Trials</h1>
+    <h1>TRIALS</h1>
     <div v-for="trial in trials" :key="trial.id">
       <h3>Trial number {{trial.trialNumber}} with subject number {{trial.subjectId}}</h3>
       <p>Rating: {{trial.rating}}</p>

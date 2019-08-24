@@ -1,5 +1,10 @@
 <template>
-  <div class="home">The Experiment</div>
+  <div class="home">
+    <h1>
+      YOUR EXPERIMENT DATA
+    </h1>
+
+  </div>
 </template>
 
 <script>
