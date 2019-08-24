@@ -6,6 +6,13 @@ import Home from '@/views/Home.vue';
 import SignUp from '@/views/auth/SignUp.vue';
 import SignIn from '@/views/auth/SignIn.vue';
 
+// Labs:
+import Laboratories from '@/views/laboratoryViews/Laboratories.vue';
+// Labs:
+import Subjects from '@/views/subjectViews/Subjects.vue';
+// Labs:
+import Trials from '@/views/trialViews/Trials.vue';
+
 Vue.use(Router);
 
 const router = new Router({
@@ -37,6 +44,37 @@ const router = new Router({
       name: 'signin',
       component: SignIn,
     },
+
+    // Laboratory routes:
+    {
+      path: '/laboratories',
+      name: 'laboratories',
+      component: Laboratories,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+
+    // Subject Routes:
+    {
+      path: '/subjects',
+      name: 'subjects',
+      component: Subjects,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+
+    // Trail Routes:
+    {
+      path: '/trials',
+      name: 'trials',
+      component: Trials,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+
   ],
 });
 

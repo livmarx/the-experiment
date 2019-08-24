@@ -1,13 +1,11 @@
 <template>
-  <div class="nav">
+  <div class="side-bar" v-if="isSignedIn">
     <nav>
-      <router-link :to="{name: 'home'}">
-        <div>The Experiment</div>
-      </router-link>
-      <div class="nav-links">
-        <LogOutButton v-if="isSignedIn" />
-        <NavLink buttonName="Sign Up" route="signup" v-if="!isSignedIn" />
-        <NavLink buttonName="Sign In" route="signin" v-if="!isSignedIn " />
+      <div class="side-links">
+        <NavLink buttonName="MY DASHBOARD" route="home" />
+        <NavLink buttonName="SUBJECTS" route="subjects" />
+        <NavLink buttonName="TRIALS" route="trials" />
+        <NavLink buttonName="LABORATORIES" route="laboratories" />
       </div>
     </nav>
   </div>
@@ -16,12 +14,10 @@
 <script>
 import firebase from 'firebase';
 // Components:
-import LogOutButton from '@/components/LogOutButton';
 import NavLink from '@/components/NavLink';
 export default {
-  name: 'NavBar',
+  name: 'SideBar',
   components: {
-    LogOutButton,
     NavLink,
   },
   data() {
@@ -46,27 +42,31 @@ export default {
 };
 </script>
 
-<style >
-nav {
-  background-color: #b1a8cb;
+<style>
+.side-bar {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  background-color: #7863a0;
   padding: 10px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 }
 
-.nav-links {
+.side-links {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
 }
-button {
+/* button {
   margin: 5px;
-  background-color: #8980a8;
+  background-color: #b1a8cb;
   color: white;
   font-size: 14px;
   border-radius: 3px;
-}
+} */
 a {
   text-decoration: none;
   font-size: 20px;

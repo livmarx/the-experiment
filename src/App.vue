@@ -1,19 +1,22 @@
 <template>
   <div id="app">
     <NavBar />
-    <router-view/>
+    <SideBar />
+    <router-view />
   </div>
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue'
+import NavBar from '@/components/NavBar.vue';
+import SideBar from '@/components/SideBar.vue';
 
 export default {
   name: 'App',
-  components:{
+  components: {
     NavBar,
-  }
-}
+    SideBar,
+  },
+};
 </script>
 
 <style lang="scss">
