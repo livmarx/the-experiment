@@ -2,7 +2,7 @@
   <div>
     <h1>Trials</h1>
     <div v-for="trial in trials" :key="trial.id">
-      <h3>{{trial.name}}</h3>
+      <h3>Trial number {{trial.trialNumber}} with subject number {{trial.subjectId}}</h3>
       <p>Rating: {{trial.rating}}</p>
       <p>Date: {{trial.date}}</p>
     </div>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { readCollection } from '@/apis/databaseApi';
+import { readCollection, readDocument } from '@/apis/databaseApi';
 export default {
   name: 'Trials',
   data() {
@@ -19,10 +19,15 @@ export default {
     };
   },
   methods: {
-    getSubjects() {
+
+    getTrials() {
       readCollection('trials')
         .then(snapshot => {
           this.trials = snapshot;
+          this.trials.forEach(element => {
+            element.subject = {};
+            return element;
+          });
         })
         .catch(err => {
           console.error(err);
@@ -30,7 +35,7 @@ export default {
     },
   },
   created() {
-    this.getSubjects();
+    this.getTrials();
   },
 };
 </script>

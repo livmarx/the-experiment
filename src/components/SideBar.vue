@@ -2,10 +2,10 @@
   <div class="side-bar" v-if="isSignedIn">
     <nav>
       <div class="side-links">
-        <NavLink buttonName="MY DASHBOARD" route="home" />
+        <NavLink buttonName="MY CLIPBOARD" route="home" />
+        <NavLink buttonName="LABORATORIES" route="laboratories" />
         <NavLink buttonName="SUBJECTS" route="subjects" />
         <NavLink buttonName="TRIALS" route="trials" />
-        <NavLink buttonName="LABORATORIES" route="laboratories" />
       </div>
     </nav>
   </div>

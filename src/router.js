@@ -74,7 +74,6 @@ const router = new Router({
         requiresAuth: true,
       },
     },
-
   ],
 });
 
