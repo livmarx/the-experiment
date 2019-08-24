@@ -42,6 +42,18 @@ export function updateResearcher(administrator, email, displayName) {
     });
 }
 
+export function signInResearcher(email, password) {
+  return firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then(() => {
+      return Promise.resolve(true);
+    })
+    .catch(err => {
+      return Promise.reject({ message: err.message });
+    });
+}
+
 // export function deactivateAdministrator(administratorEmail) {
 //   const functions = firebase.functions();
 //   // makes a reference to the function:

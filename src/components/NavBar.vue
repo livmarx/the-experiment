@@ -5,19 +5,21 @@
         <div>The Experiment</div>
       </router-link>
       <div class="nav-links">
-        <NavLink buttonName="Log Out" route="LogOut" />
-        <NavLink buttonName="Sign In" route="signin" />
+        <LogOutButton />
         <NavLink buttonName="Sign Up" route="signup" />
+        <NavLink buttonName="Sign In" route="signin" />
       </div>
     </nav>
   </div>
 </template>
 
 <script>
+import LogOutButton from '@/components/LogOutButton';
 import NavLink from '@/components/NavLink';
 export default {
   name: 'NavBar',
   components: {
+    LogOutButton,
     NavLink,
   },
 };

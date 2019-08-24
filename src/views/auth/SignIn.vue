@@ -13,32 +13,47 @@
         :inputData="password"
         @updateData="updateData($event, 'password')"
       />
-      <CreateButton title="Sign In!" routeName="home" :data="user" />
+      <button @click="signIn">Sign In!</button>
+    </form>
     </form>
   </div>
 </template>
 
 <script>
+// functions:
+import { signInResearcher } from '@/apis/authApi.js';
 // components:
-import CreateButton from '@/components/CreateButton';
 import TextInput from '@/components/TextInput';
 export default {
   name: 'SignIn',
   components: {
-    CreateButton,
     TextInput,
   },
   data() {
     return {
-      researcher: {
         email: null,
         password: null,
-      },
+        feedback: null,
     };
   },
   methods: {
+    signIn() {
+      if (this.email && this.password) {
+        this.feedback = null;
+        signInResearcher(this.email, this.password)
+          .then(() => {
+            this.$router.push({ name: 'home' });
+          })
+          .catch(err => {
+            console.error(err);
+            this.feedback = err.message;
+          });
+      } else {
+        this.feedback = 'Please enter both email and password.';
+      }
+    },
     updateData(event, attribute) {
-      this.researcher[attribute] = event;
+      this[attribute] = event;
     },
   },
 };

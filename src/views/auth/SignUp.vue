@@ -50,7 +50,7 @@ export default {
         reseacher.name = this.name;
         createResearcher(this.email, this.password, reseacher)
           .then(() => {
-            this.$router.push({ name: 'Home' });
+            this.$router.push({ name: 'home' });
           })
           .catch(err => {
             console.error(err);
