@@ -6,12 +6,20 @@ import Home from '@/views/Home.vue';
 import SignUp from '@/views/auth/SignUp.vue';
 import SignIn from '@/views/auth/SignIn.vue';
 
-// Labs:
+// Laboratory Views:
 import Laboratories from '@/views/laboratoryViews/Laboratories.vue';
-// Labs:
+import AddLaboratory from '@/views/laboratoryViews/AddLaboratory.vue';
+import EditLaboratory from '@/views/laboratoryViews/EditLaboratory.vue';
+
+// Subject Views:
 import Subjects from '@/views/subjectViews/Subjects.vue';
-// Labs:
+import AddSubject from '@/views/subjectViews/AddSubject.vue';
+import EditSubject from '@/views/subjectViews/EditSubject.vue';
+
+// Trial Views:
 import Trials from '@/views/trialViews/Trials.vue';
+import AddTrial from '@/views/trialViews/AddTrial.vue';
+import EditTrial from '@/views/trialViews/EditTrial.vue';
 
 Vue.use(Router);
 
@@ -54,6 +62,22 @@ const router = new Router({
         requiresAuth: true,
       },
     },
+    {
+      path: '/laboratories/add',
+      name: 'addLaboratory',
+      component: AddLaboratory,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/laboratories/:laboratory_id/edit',
+      name: 'editLaboratory',
+      component: EditLaboratory,
+      meta: {
+        requiresAuth: true,
+      },
+    },
 
     // Subject Routes:
     {
@@ -64,12 +88,44 @@ const router = new Router({
         requiresAuth: true,
       },
     },
+    {
+      path: '/subjects/add',
+      name: 'addSubject',
+      component: AddSubject,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/subjects/:subject_id/edit',
+      name: 'editSubject',
+      component: EditSubject,
+      meta: {
+        requiresAuth: true,
+      },
+    },
 
     // Trail Routes:
     {
       path: '/trials',
       name: 'trials',
       component: Trials,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/trials/add',
+      name: 'addTrial',
+      component: AddTrial,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/trials/:trial_id/edit',
+      name: 'editTrial',
+      component: EditTrial,
       meta: {
         requiresAuth: true,
       },

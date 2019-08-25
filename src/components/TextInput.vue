@@ -1,4 +1,4 @@
-<template>
+2<template>
   <div>
     <label>{{label}}</label>:
     <br />
@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     updateData() {
-      this.$emit('updateData', this.inputData);
+      this.$emit('emitData', this.inputData);
     },
   },
 };
